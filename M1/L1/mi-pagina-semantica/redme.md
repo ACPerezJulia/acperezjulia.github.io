@@ -20,6 +20,6 @@ Antes de terminar, verifica que:
 - [x] La imagen carga (no se ve rota y tiene un `alt` descriptivo).
 - [x] Hay un solo `main` y al menos un `header`, `nav`, `article`, `aside` y `footer`.
 - [x] Los enlaces de navegación funcionan.
-- [x] Tu código está bien indentado y las rutas son relativas.
+- [] Tu código está bien indentado y las rutas son relativas.
 
 ---
