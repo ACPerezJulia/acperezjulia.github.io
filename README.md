@@ -8,7 +8,7 @@ En este caso y por el conocimiento que adquirí en el **Prep-Course de SoyHenry*
 
 ## Índice de Homeworks
 **Modulo 1**:
-  - **Lectura 1** [Clic aquí](https://acperezjulia.github.io/M1/L1/mi-pagina-semantica/index.html)
+  - [**Lectura 1**](https://acperezjulia.github.io/M1/L1/mi-pagina-semantica/index.html)
   - **Lectura 2** _En construcción_
 
 ---
