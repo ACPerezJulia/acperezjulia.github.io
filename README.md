@@ -10,6 +10,7 @@ En este caso y por el conocimiento que adquirí en el **Prep-Course de SoyHenry*
 **Modulo 1**:
   - **Lectura 1** [Clic aquí](https://acperezjulia.github.io/M1/L1/mi-pagina-semantica/index.html)
   - **Lectura 2** _En construcción_
+
 ---
 
 ## Checklist Técnico
