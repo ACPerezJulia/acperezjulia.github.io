@@ -1,13 +1,13 @@
 body {
   font-family: system-ui, Arial, sans-serif;
-  background: linear-gradient(135deg, #3a155f 0%, #a730a7 100%);
+  background: #f7fafc;
   margin: 0;
-  color: #fcfcfc;
+  color: #232629;
 }
 
 header, nav, footer {
   padding: 16px;
-  background: linear-gradient(135deg, #3a155f 0%, #a730a7 100%);
+  background: #ffffff;
   margin-bottom: 12px;
 }
 
@@ -24,7 +24,7 @@ nav ul {
 }
 
 nav a {
-  color: #7facff;
+  color: #0b5fff;
   text-decoration: none;
   font-weight: bold;
 }
@@ -38,6 +38,22 @@ main {
   max-width: 900px;
   margin: 0 auto;
   padding: 16px;
-   background: linear-gradient(135deg, #c749c7 0%, #7d47b3 100%);
+  background: #fff;
   border-radius: 8px;
+}
+
+article {
+  flex: 2;
+}
+aside {
+  flex: 1;
+  background: #f0f4f8;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+footer {
+  text-align: center;
+  color: #888;
+  font-size: 0.95rem;
 }
