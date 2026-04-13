@@ -15,7 +15,7 @@ Esta carpeta contiene una mini página personal construida con HTML semántico y
 
 Antes de terminar, verifica que:
 
-- [x] La página se abre bien en el navegador (abre `https://acperezjulia.github.io/M1/L1/mi-pagina-semantica/index.html`).
+- [x] La página se abre bien en el navegador ([Haz clic aquí para ver el index del Homework M1-L1](https://acperezjulia.github.io/M1/L1/mi-pagina-semantica/index.html))
 - [x] El CSS se aplica (tipografía y colores deben cambiar).
 - [x] La imagen carga (no se ve rota y tiene un `alt` descriptivo).
 - [x] Hay un solo `main` y al menos un `header`, `nav`, `article`, `aside` y `footer`.
