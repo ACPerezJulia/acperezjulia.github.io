@@ -1,21 +1,18 @@
-# Mi Página HTML Semántica
+# Los Homeworks de Anita
 
-Esta carpeta contiene una mini página personal construida con HTML semántico y CSS básico. Abre `index.html` directamente en tu navegador para verla. No requiere servidores ni bases de datos.
+El Homework del Módulo 1, Lectura 1: contiene una mini página personal construida con HTML semántico y CSS básico. Abre `index.html` directamente en tu navegador para verla. No requiere servidores ni bases de datos.
+En este caso y por el conocimiento que adquirí en el Prep-Course de SoyHenry, logré publicarla en Github para poder avanzar un paso más y compartir por este medio la web.
 
-## ¿Qué revisar?
-- El HTML está estructurado con header, nav, main, article, aside, footer.
-- Hay una imagen relevante en `img/`.
-- El CSS externo se carga correctamente desde `css/styles.css`.
-- Los enlaces funcionan y la imagen se muestra.
-- Todo el contenido es claro y fácil de leer.
+## ¿Cuáles son los Homeworks?
+- El 1ro es el M1 L1 [Haz clic aquí para verlo](https://acperezjulia.github.io/M1/L1/mi-pagina-semantica/index.html)
 
 ---
 
 ## Checklist Técnico
 
-Antes de terminar, verifica que:
+Verifica que:
 
-- [x] La página se abre bien en el navegador ([Haz clic aquí para ver el index del Homework M1-L1](https://acperezjulia.github.io/M1/L1/mi-pagina-semantica/index.html))
+- [x] La página se abre bien en el navegador [Homework M1-L1](https://acperezjulia.github.io/M1/L1/mi-pagina-semantica/index.html)
 - [x] El CSS se aplica (tipografía y colores deben cambiar).
 - [x] La imagen carga (no se ve rota y tiene un `alt` descriptivo).
 - [x] Hay un solo `main` y al menos un `header`, `nav`, `article`, `aside` y `footer`.
