@@ -4,8 +4,8 @@ El Homework del Módulo 1, Lectura 1: _contiene una mini página personal constr
 
 En este caso y por el conocimiento que adquirí en el **Prep-Course de SoyHenry** y _**mi propio ingenio buscando en la web...**_ logré publicarla en Github para poder avanzar un paso más y compartir por este medio la web.
 
-## ¿Cuáles son los Homeworks?
-- El 1ro es el **M1 L1** [Haz clic aquí para verlo](https://acperezjulia.github.io/M1/L1/mi-pagina-semantica/index.html)
+## Índice de Homeworks
+- **Modulo 1 Lectura 1** [Clic aquí](https://acperezjulia.github.io/M1/L1/mi-pagina-semantica/index.html)
 
 ---
 
