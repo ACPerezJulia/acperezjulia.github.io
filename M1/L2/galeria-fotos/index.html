@@ -16,7 +16,7 @@
       <p class="descripcion">Una colección de adorables amigos de cuatro patas</p>
     </div>
     <!-- Botón de cambio de tema -->
-    <button class="btn-tema" aria-label="Cambiar tema claro/oscuro" title="Cambiar tema">
+    <button class="boton-tema" aria-label="Cambiar tema claro/oscuro" title="Cambiar tema">
       <span class="icono-tema"></span>
     </button>
   </header>
@@ -116,7 +116,7 @@
   <!-- Script para manejar el cambio de tema -->
   <script>
     // Obtener el botón de tema
-    const btnTema = document.querySelector('.btn-tema');
+    const botonTema = document.querySelector('.boton-tema');
     const html = document.documentElement;
 
     // Función para obtener el tema guardado o preferencia del sistema
@@ -146,7 +146,7 @@
     aplicarTema(obtenerTemaPredeterminado());
 
     // Escuchar clicks en el botón
-    btnTema.addEventListener('click', cambiarTema);
+    botonTema.addEventListener('click', cambiarTema);
   </script>
 </body>
 </html>

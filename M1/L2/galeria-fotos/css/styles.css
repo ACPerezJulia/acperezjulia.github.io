@@ -239,12 +239,12 @@ html[data-theme="oscuro"] .foto-titulo {
 /* ========================================
    BOTÓN DE CAMBIO DE TEMA
    ======================================== */
-.btn-tema {
+.boton-tema {
   position: absolute;
   top: 1.5rem;
   right: 2rem;
   background: none;
-  border: 2px solid white;
+  border: none;
   border-radius: 50%;
   width: 3rem;
   height: 3rem;
@@ -257,12 +257,12 @@ html[data-theme="oscuro"] .foto-titulo {
   color: white;
 }
 
-.btn-tema:hover {
+.boton-tema:hover {
   background-color: rgba(255, 255, 255, 0.2);
   transform: scale(1.1);
 }
 
-.btn-tema:active {
+.boton-tema:active {
   transform: scale(0.95);
 }
 
@@ -281,7 +281,7 @@ html[data-theme="oscuro"] .icono-tema::before {
   content: '🌙';
 }
 
-.btn-tema:hover .icono-tema {
+.boton-tema:hover .icono-tema {
   transform: rotate(20deg);
 }
 
