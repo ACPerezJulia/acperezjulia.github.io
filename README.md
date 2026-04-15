@@ -8,20 +8,8 @@ En este caso y por el conocimiento que adquirí en el **Prep-Course de SoyHenry*
 
 ## Índice de Homeworks
 **Modulo 1**:
-  - [**Lectura 1**](https://acperezjulia.github.io/M1/L1/mi-pagina-semantica/index.html)
-  - [**Lectura 2**](https://acperezjulia.github.io/M1/L2/galeria-fotos/index.html)
-
----
-
-## Checklist Técnico
-
-Verifiqué que:
-
-- [x] La página se abra bien en el navegador
-- [x] El CSS se aplique bien _(tipografía y colores deben cambiar)_.
-- [x] La imagen cargue _(no se ve rota y tiene un `alt` descriptivo)_.
-- [x] Haya un solo `main` y al menos un `header`, `nav`, `article`, `aside` y `footer`.
-- [x] Los enlaces de navegación funcionen.
-- [x] El código esté bien indentado y las rutas sean relativas.
+  - [**Lectura 1**](https://acperezjulia.github.io/M1/L1/mi-pagina-semantica/index.html) <--clic aquí para verlo
+  - [**Lectura 2**](https://acperezjulia.github.io/M1/L2/galeria-fotos/index.html) <--clic aquí para verlo
+  - **Lectura 3** En proceso...
 
 ---
