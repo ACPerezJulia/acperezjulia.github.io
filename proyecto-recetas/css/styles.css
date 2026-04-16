@@ -59,10 +59,10 @@ body {
 :root {
   /* COLOR TEMA CLARO (por defecto) */
   /* Color primario: Morado/Azul */
-  --color-primario: hsl(0, 70%, 50%);
-  /* Variaciones: Mismo Hue (0) y Saturation (70%), variando Lightness */
-  --color-primario-claro: hsl(0, 70%, 70%); /* Más claro para fondos o acentos */
-  --color-primario-oscuro: hsl(0, 70%, 40%); /* Más oscuro para texto o bordes */
+  --color-primario: hsl(313, 70%, 38%);
+  /* Variaciones: Mismo Hue (313) y Saturation (70%), variando Lightness */
+  --color-primario-claro: hsl(313, 70%, 70%); /* Más claro para fondos o acentos */
+  --color-primario-oscuro: hsl(313, 70%, 40%); /* Más oscuro para texto o bordes */
 
   /* Colores de texto y fondo - TEMA CLARO */
   --color-texto-principal: hsl(0, 0%, 20%); /* Gris oscuro para texto */
@@ -80,9 +80,9 @@ body {
 /* VARIABLES PARA TEMA OSCURO */
 html[data-theme="oscuro"] {
   /* Invertimos Lightness para crear variaciones oscuras del mismo Hue */
-  --color-primario: hsl(0, 70%, 60%); /* Más claro para que sea visible en fondo oscuro */
-  --color-primario-claro: hsl(0, 71%, 80%); /* Aún más claro para acentos */
-  --color-primario-oscuro: hsl(0, 70%, 40%); /* Para bordes/sombras */
+  --color-primario: hsl(313, 70%, 38%); /* Más claro para que sea visible en fondo oscuro */
+  --color-primario-claro: hsl(313, 71%, 80%); /* Aún más claro para acentos */
+  --color-primario-oscuro: hsl(313, 70%, 40%); /* Para bordes/sombras */
 
   /* Colores de texto y fondo - TEMA OSCURO */
   --color-texto-principal: hsl(0, 0%, 90%); /* Blanco casi puro para texto */
@@ -112,10 +112,32 @@ html[data-theme="oscuro"] {
   text-align: center;
 }
 
+/* Estilos para el logo del header */
+.logo-principal {
+  max-width: 500px; /* Aumentamos el tamaño máximo para darle mucha más presencia */
+  width: 100%; /* Lo hace responsive en celulares */
+  height: auto;
+  margin-bottom: 1rem;
+  filter: invert(1) drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2)); /* Invertimos los colores y mantenemos el sombreado */
+}
+
 .titulo-principal {
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
   color: white;
+}
+
+/* Oculta elementos visualmente pero los mantiene para SEO y lectores de pantalla */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
 .descripcion {
@@ -130,6 +152,38 @@ html[data-theme="oscuro"] {
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
+}
+
+/* ========================================
+   BUSCADOR DE RECETAS
+   ======================================== */
+.buscador-contenedor {
+  max-width: 600px;
+  margin: 0 auto 2rem auto;
+  display: flex;
+  justify-content: center;
+}
+
+.buscador-input {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  font-size: 1.1rem;
+  border: 2px solid var(--color-primario-claro);
+  border-radius: 30px;
+  background-color: var(--color-tarjeta);
+  color: var(--color-texto-principal);
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  font-family: inherit;
+}
+
+.buscador-input:focus {
+  border-color: var(--color-primario);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+html[data-theme="oscuro"] .buscador-input:focus {
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
 }
 
 /* ========================================
@@ -239,6 +293,21 @@ html[data-theme="oscuro"] {
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
+  max-height: 100%;
+  overflow-y: auto;
+  width: 100%;
+}
+
+/* Estilos personalizados para la barra de scroll de ingredientes */
+.foto-ingredientes::-webkit-scrollbar {
+  width: 6px; /* Hace la barra más fina y delicada */
+}
+.foto-ingredientes::-webkit-scrollbar-track {
+  background: transparent; /* Fondo invisible */
+}
+.foto-ingredientes::-webkit-scrollbar-thumb {
+  background-color: var(--color-primario-claro); /* Usa tu variable de color */
+  border-radius: 10px; /* Bordes redondeados */
 }
 
 .foto-info {
