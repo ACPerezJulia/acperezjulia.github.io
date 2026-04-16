@@ -12,7 +12,8 @@
   <!-- HEADER: Título y descripción -->
   <header class="header">
     <div class="header-contenido">
-      <h1 class="titulo-principal">La cocina de Anita</h1>
+      <img src="img/logo.png" alt="Logo de La Cocina de Anita" class="logo-principal">
+      <h1 class="titulo-principal sr-only">La cocina de Anita</h1>
       <p class="descripcion">Una colección de recetas ricas, abundantes y ¡repletas de amor!</p>
     </div>
     <!-- Botón de cambio de tema -->
@@ -23,6 +24,12 @@
 
   <!-- CONTENEDOR PRINCIPAL -->
   <main class="contenedor">
+
+      <!-- BUSCADOR DE RECETAS -->
+      <div class="buscador-contenedor">
+        <input type="text" id="buscador-recetas" class="buscador-input" placeholder="Buscar receta o ingrediente...">
+      </div>
+
       <!-- GALERÍA DE FOTOS -->
       <section class="galeria">
         
@@ -224,6 +231,30 @@
 
     // Escuchar clicks en el botón
     botonTema.addEventListener('click', cambiarTema);
+
+    // Lógica del buscador de recetas
+    const buscadorInput = document.getElementById('buscador-recetas');
+    const tarjetasRecetas = document.querySelectorAll('.foto-tarjeta');
+
+    // Función auxiliar para quitar acentos
+    function quitarAcentos(texto) {
+      return texto.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+    }
+
+    buscadorInput.addEventListener('input', function(e) {
+      const terminoBusqueda = quitarAcentos(e.target.value.toLowerCase());
+
+      tarjetasRecetas.forEach(tarjeta => {
+        const textoTarjeta = tarjeta.textContent.toLowerCase();
+        const textoNormalizado = quitarAcentos(textoTarjeta);
+
+        if (textoNormalizado.includes(terminoBusqueda)) {
+          tarjeta.style.display = ''; // Muestra la tarjeta dejándola con su valor por defecto
+        } else {
+          tarjeta.style.display = 'none'; // Oculta la tarjeta
+        }
+      });
+    });
   </script>
 </body>
 </html>
