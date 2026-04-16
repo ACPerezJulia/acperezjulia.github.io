@@ -1,0 +1,81 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* Header con ID */
+#main-header {
+  background-color: navy;
+  color: white;
+  padding: 20px;
+}
+
+/* Títulos dentro del header */
+#main-header h1 {
+  font-size: 28px;
+}
+
+/* Enlaces de navegación */
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-right: 15px;
+}
+
+/* Estado hover de enlaces */
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Enlaces externos (target blank) */
+a[target="_blank"]::after {
+  content: " ↗";
+}
+
+/* Estilos de artículos */
+article {
+  margin: 30px;
+  padding: 20px;
+  border: 1px solid lightgray;
+}
+
+/* Títulos de artículos */
+article h2 {
+  color: navy;
+  margin-bottom: 10px;
+}
+
+/* Párrafo intro */
+.intro {
+  font-size: 18px;
+  font-weight: bold;
+  color: darkgray;
+}
+
+/* Párrafos después de la intro */
+.intro ~ p {
+  color: black;
+}
+
+/* Artículos destacados */
+article.destacado {
+  background-color: lightyellow;
+  border: 2px solid gold;
+}
+
+/* Footer */
+footer {
+  background-color: darkgray;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  margin-top: 30px;
+}
