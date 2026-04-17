@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Práctica JavaScript</title>
+</head>
+<body>
+  <h1>Perfil de Usuario</h1>
+  <form id="perfilForm">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" required><br><br>
+    <label for="fecha">Fecha de nacimiento:</label>
+    <input type="date" id="fecha" required><br><br>
+    <button type="submit">Mostrar perfil</button>
+  </form>
+  <div id="resultado"></div>
+  <div id="ruleta-section" style="display:none; margin-top:30px;">
+    <h2>¡Girá la ruleta de colores!</h2>
+    <button id="girarRuleta">Girar ruleta</button>
+    <div id="colorElegido" style="margin-top:20px; font-size:1.3em;"></div>
+  </div>
+  <p>Abre la consola del navegador (F12) para ver los resultados</p>
+  <!-- Vincular el archivo JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
