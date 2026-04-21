@@ -87,12 +87,27 @@ body {
 	}
 
 	#cambiarBtn {
+		width: min(100%, 420px);
 		font-size: 1.02rem;
+	}
+
+	#miParrafo {
+		width: min(100%, 640px);
+		max-width: unset;
 	}
 }
 
 @media (min-width: 1024px) {
 	body {
 		padding: 2.5rem;
+	}
+
+	#cambiarBtn {
+		width: min(100%, 480px);
+	}
+
+	#miParrafo {
+		width: min(100%, 680px);
+		max-width: unset;
 	}
 }
