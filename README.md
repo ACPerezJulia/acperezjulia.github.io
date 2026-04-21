@@ -9,7 +9,8 @@ En este espacio crearé una mini guía para los Homeworks del Curso webFT74 que 
   - [**Lectura 3**](https://acperezjulia.github.io/M1/L3/proyecto-recetas/index.html) <--clic aquí
   - [**Lectura 4**](https://acperezjulia.github.io/M1/L4/practica-javascript/index.html) <--clic aquí
   - [**Lectura 5**](https://acperezjulia.github.io/M1/L5/index.html) <--clic aquí
-  - **Lectura 6** En proceso...
+  - [**Lectura 6**](https://acperezjulia.github.io/M1/L6/index.html) <--clic aquí
+  - **Lectura 7** En proceso... Aunque digamos que esta página aquí montada es la lectura 7  aplicada...
 
     
 ---
