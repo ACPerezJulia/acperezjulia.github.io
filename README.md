@@ -13,6 +13,7 @@ En este espacio crearé una mini guía para los Homeworks del Curso webFT74 que 
   - **Lectura 7** En proceso... Aunque digamos que esta página aquí montada es la lectura 7  aplicada...
 
 [**Proyecto Integrador**](https://acperezjulia.github.io/M1/ProyectoPaleta/index.html) <--clic aquí
-
+[**Prueba 2**](https://acperezjulia.github.io/M1/ProyectoPaleta/correcciones-checklist/index.html)
+    
     
 ---
