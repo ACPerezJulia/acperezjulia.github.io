@@ -98,7 +98,7 @@ function renderGrid() {
 
   // Mostrar/ocultar "Desbloquear todo" según si hay algún color bloqueado
   const hasLocked = state.colors.some(c => c.locked);
-  btnUnlockAll.style.display = hasLocked ? '' : 'none';
+  btnUnlockAll.classList.toggle('hidden', !hasLocked);
 
   state.colors.forEach((color, index) => {
     const bg  = toHSLString(color);
@@ -115,7 +115,9 @@ function renderGrid() {
     // Swatch
     const swatch = document.createElement('div');
     swatch.className = 'card-swatch';
+    // Nota: swatch.style.background es inline intencional — el color es dinámico (valor único por color generado)
     swatch.style.background = bg;
+    // cursor:pointer se define en CSS (.card-swatch), no hace falta inline
 
     // Hint de copia
     const hint = document.createElement('div');
@@ -129,7 +131,7 @@ function renderGrid() {
     const lockBadge = document.createElement('div');
     lockBadge.className = 'lock-badge';
     lockBadge.setAttribute('aria-hidden', 'true');
-    lockBadge.innerHTML = '🔒 bloqueado';
+    lockBadge.textContent = '🔒 bloqueado';
     swatch.appendChild(lockBadge);
 
     // Info bar
@@ -168,7 +170,6 @@ function renderGrid() {
     };
 
     swatch.addEventListener('click', copyAction);
-    swatch.style.cursor = 'pointer';
 
     card.addEventListener('keydown', e => {
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); copyAction(); }
@@ -196,22 +197,126 @@ function renderGrid() {
 
       // Mostrar/ocultar botón "Desbloquear todo"
       const hasLocked = state.colors.some(c => c.locked);
-      btnUnlockAll.style.display = hasLocked ? '' : 'none';
+      btnUnlockAll.classList.toggle('hidden', !hasLocked);
 
       showToast(isNowLocked ? '🔒 Color bloqueado' : '🔓 Color desbloqueado');
     });
   });
 
-  // Botón de guardar (solo si no existe ya)
+  // Botones de acción (solo si no existen ya)
   if (!document.getElementById('btn-save-palette')) {
+    const actionBar = document.createElement('div');
+    actionBar.id = 'palette-action-bar';
+    actionBar.className = 'palette-action-bar';
+
     const btnSave = document.createElement('button');
     btnSave.id = 'btn-save-palette';
     btnSave.className = 'btn-save-palette';
     btnSave.setAttribute('aria-label', 'Guardar paleta actual');
     btnSave.innerHTML = '💾 Guardar paleta';
     btnSave.addEventListener('click', savePalette);
-    grid.insertAdjacentElement('afterend', btnSave);
+
+    const btnExport = document.createElement('button');
+    btnExport.id = 'btn-export-palette';
+    btnExport.className = 'btn-export-palette';
+    btnExport.setAttribute('aria-label', 'Exportar paleta como imagen PNG');
+    btnExport.innerHTML = '🖼 Exportar PNG';
+    btnExport.addEventListener('click', exportPalettePNG);
+
+    actionBar.appendChild(btnSave);
+    actionBar.appendChild(btnExport);
+    grid.insertAdjacentElement('afterend', actionBar);
   }
+}
+
+/* ───────────────────────────────────────────
+   EXPORTAR PALETA COMO PNG — Canvas API
+─────────────────────────────────────────── */
+
+function exportPalettePNG() {
+  const colors = state.colors;
+  const count  = colors.length;
+
+  // Dimensiones lógicas (lo que "parece" en pantalla)
+  const STRIP_W  = 160;   // ancho de cada tira de color
+  const SWATCH_H = 280;   // altura del bloque de color
+  const LABEL_H  = 52;    // altura del área de texto
+  const PADDING  = 12;    // espacio entre tiras
+  const MARGIN   = 24;    // margen exterior
+
+  const canvasW = MARGIN * 2 + count * STRIP_W + (count - 1) * PADDING;
+  const canvasH = MARGIN * 2 + SWATCH_H + LABEL_H;
+
+  // Factor de escala para pantallas HiDPI/Retina — texto nítido
+  const DPR = window.devicePixelRatio || 1;
+
+  const canvas  = document.createElement('canvas');
+  canvas.width  = canvasW * DPR;
+  canvas.height = canvasH * DPR;
+
+  const ctx = canvas.getContext('2d');
+
+  // Escalar el contexto para que todo dibuje al doble de resolución
+  ctx.scale(DPR, DPR);
+
+  // Fondo según tema activo
+  const isLight = document.body.classList.contains('light');
+  ctx.fillStyle = isLight ? '#f5f4f0' : '#17171b';
+  ctx.fillRect(0, 0, canvasW, canvasH);
+
+  colors.forEach((color, index) => {
+    const x = MARGIN + index * (STRIP_W + PADDING);
+    const y = MARGIN;
+
+    // Swatch con esquinas redondeadas solo arriba
+    const hsl = `hsl(${color.h}, ${color.s}%, ${color.l}%)`;
+    ctx.fillStyle = hsl;
+    roundRect(ctx, x, y, STRIP_W, SWATCH_H, { tl: 14, tr: 14, bl: 0, br: 0 });
+    ctx.fill();
+
+    // Fondo de la etiqueta — mismo color que el fondo pero ligeramente diferente
+    ctx.fillStyle = isLight ? '#ffffff' : '#0e0e10';
+    roundRect(ctx, x, y + SWATCH_H, STRIP_W, LABEL_H, { tl: 0, tr: 0, bl: 14, br: 14 });
+    ctx.fill();
+
+    // Separador sutil entre swatch y etiqueta
+    ctx.fillStyle = isLight ? 'rgba(0,0,0,0.06)' : 'rgba(255,255,255,0.06)';
+    ctx.fillRect(x, y + SWATCH_H, STRIP_W, 1);
+
+    // Código del color
+    const code = formatColor(color);
+    ctx.fillStyle  = isLight ? '#1a1a1e' : '#e8e8f0';
+    ctx.font       = '500 13px "DM Mono", "Courier New", monospace';
+    ctx.textAlign  = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(code, x + STRIP_W / 2, y + SWATCH_H + LABEL_H / 2);
+  });
+
+  // Descargar como PNG
+  const link    = document.createElement('a');
+  link.href     = canvas.toDataURL('image/png');
+  link.download = `paleta-${Date.now()}.png`;
+  link.click();
+
+  showToast('🖼 PNG exportado');
+}
+
+/** Rectángulo con radio independiente por esquina */
+function roundRect(ctx, x, y, w, h, r) {
+  const { tl = 0, tr = 0, bl = 0, br = 0 } = typeof r === 'number'
+    ? { tl: r, tr: r, bl: r, br: r }
+    : r;
+  ctx.beginPath();
+  ctx.moveTo(x + tl, y);
+  ctx.lineTo(x + w - tr, y);
+  ctx.quadraticCurveTo(x + w, y,         x + w, y + tr);
+  ctx.lineTo(x + w, y + h - br);
+  ctx.quadraticCurveTo(x + w, y + h,     x + w - br, y + h);
+  ctx.lineTo(x + bl, y + h);
+  ctx.quadraticCurveTo(x,     y + h,     x, y + h - bl);
+  ctx.lineTo(x, y + tl);
+  ctx.quadraticCurveTo(x,     y,         x + tl, y);
+  ctx.closePath();
 }
 
 /* ───────────────────────────────────────────
@@ -306,7 +411,7 @@ function renderSaved() {
   emptyState.classList.add('hidden');
 
   state.saved.forEach(palette => {
-    const row = document.createElement('div');
+    const row = document.createElement('li');
     row.className = 'saved-palette';
     row.setAttribute('role', 'article');
     row.setAttribute('aria-label', `Paleta guardada con ${palette.colors.length} colores`);
