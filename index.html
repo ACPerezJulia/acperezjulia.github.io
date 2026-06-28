@@ -18,10 +18,10 @@
       --border:    #1e1830;
       --border-mid:#2a2140;
       --text-hi:   #f0ecff;
-      --text-body: #e2dff0;
-      --text-mid:  #8b80a8;
-      --text-lo:   #5e5280;
-      --text-faint:#3d3360;
+      --text-body: #cdc8e8;
+      --text-mid:  #a89ec8;
+      --text-lo:   #8878b0;
+      --text-faint:#5a4f80;
       --accent:    #a78bfa;
       --accent-dim:#7c6fad;
       --accent-deep:#4a3f6b;
@@ -181,10 +181,11 @@
       margin-bottom: 1rem;
       width: fit-content;
     }
-    .tag-react   { background: var(--tag-react-bg);   color: var(--tag-react-color); }
-    .tag-node    { background: var(--tag-node-bg);    color: var(--tag-node-color); }
-    .tag-vanilla { background: var(--tag-vanilla-bg); color: var(--tag-vanilla-color); }
-    .tag-hw      { background: var(--tag-hw-bg);      color: var(--tag-hw-color); }
+    .tag-react, .tag-node, .tag-vanilla, .tag-hw {
+      background: #2a1a5e;
+      color: #c4a8ff;
+      border: 0.5px solid #6d3fd6;
+    }
 
     .proj-num {
       font-family: 'Space Grotesk', sans-serif;
@@ -221,11 +222,11 @@
     }
     .stack-chip {
       font-size: 11px;
-      color: var(--accent-deep);
-      background: var(--chip-bg);
+      color: #9d8ec0;
+      background: #1e1638;
       padding: 2px 8px;
       border-radius: 4px;
-      border: 0.5px solid var(--chip-border);
+      border: 0.5px solid #3a2d6a;
     }
 
     .proj-links {
@@ -358,7 +359,6 @@
               <span class="stack-chip">TypeScript</span>
               <span class="stack-chip">Firebase</span>
               <span class="stack-chip">AWS SES</span>
-              <span class="stack-chip">Gemini API</span>
               <span class="stack-chip">Vercel</span>
             </div>
           </div>
@@ -437,6 +437,25 @@
           </div>
         </article>
 
+        <!-- App institucional -->
+        <article class="proj-card featured">
+          <div>
+            <span class="proj-tag tag-node">Python · Flask</span>
+            <h2 class="proj-name">Sistema de gestión documental</h2>
+            <p class="proj-desc">Herramienta de automatización para un organismo público. Combina una app web (Flask) y una app de escritorio: gestión de expedientes, generación automática de documentos, fusión de PDFs y aplicación de sellos digitales. Los datos se sincronizan via Google Sheets API. Desarrollada en Python, deployada en Render.</p>
+            <div class="proj-stack">
+              <span class="stack-chip">Python</span>
+              <span class="stack-chip">Flask</span>
+              <span class="stack-chip">Google Sheets API</span>
+              <span class="stack-chip">PDF automation</span>
+              <span class="stack-chip">Render</span>
+            </div>
+          </div>
+          <div class="proj-links">
+            <span class="proj-link-btn" style="opacity:0.4; cursor:default;">privado</span>
+          </div>
+        </article>
+
       </div>
     </section>
 
@@ -481,7 +500,7 @@
   </main>
 
   <footer>
-    <span class="footer-copy">© 2025 Analía Pérez Julia</span>
+    <span class="footer-copy">© 2026 Analía Pérez Julia</span>
     <div class="footer-links">
       <a href="https://github.com/acperezjulia" target="_blank" rel="noopener">GitHub ↗</a>
     </div>
